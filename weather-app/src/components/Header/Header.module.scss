@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-around;
+    padding: 40px 0px 40px 0px;
+    background-color: #c4e1e8;
+    
+    .logo{
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .input{
+        input{
+            width: 300px;
+            min-height: 40px;
+            border-radius: 3px;
+        }
+        button{
+            padding: 0px 20px;
+            min-height: 46px;
+        }
+    }
+}
