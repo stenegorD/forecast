@@ -21,7 +21,7 @@ const currentTime = getCurrentTime();
 // isLoading ? <Preloader/> : 
 
   return (!weatherData ? <Preloader/> : 
-    <Card sx={{ 
+    <Card sx={{ width: "1000px",
       backgroundColor: "#000000",
           color: "#FFFFFF",
           opacity: "0.6",
