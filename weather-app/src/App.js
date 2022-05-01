@@ -1,19 +1,27 @@
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {userLocationIp}  from './store/weatherDataActionCreator';
 import './App.css';
-import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import MainContainer from './components/MainContainer/MainContainer';
 
 function App() {
- 
-// console.log(process.env.API_KEY);
-// console.log(process.env);
+
+  const {locationData} = useSelector(store => store.weatherData)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userLocationIp()) 
+    
+  }, [])
+
 
   return (
     
     <div className="App">
       <Header/>
       <MainContainer/>
-      <Footer/>
+      
     </div>
   
   );
