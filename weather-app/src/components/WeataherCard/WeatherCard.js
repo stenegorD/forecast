@@ -10,13 +10,13 @@ import Preloader from '../Preloader/Preloader';
 
 function WeatherCard() {
 
-const {weatherData, locationData, isLoading} = useSelector(store => store.weatherData)
+const {weatherData, locationData, isLoading, icon} = useSelector(store => store.weatherData)
 console.log(weatherData);
 console.log(locationData);
 let date = new Date();
 let options = { weekday: 'long'};
 const currentTime = getCurrentTime();
-
+const iconCode = icon.map(element => element.icon);
 
 // isLoading ? <Preloader/> : 
 
@@ -34,7 +34,7 @@ const currentTime = getCurrentTime();
           <CardMedia sx={{width: "150px", objectFit: "contain"}}
             component="img"
             // image= {`http://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`} 
-            
+            image= {`http://openweathermap.org/img/wn/${iconCode}@2x.png`} 
             alt="weather_icon"
           />
           

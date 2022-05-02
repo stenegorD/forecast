@@ -9,13 +9,14 @@ const initialState = {
     weatherForWeek: [],
     historyData: [],
     weatherHourly: [],
+    icon: [],
 }
 
 const weatherDataReducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
   case WEATHER_FORECAST_DATA_FOR_GEOLOCATION:
-    return { ...state, weatherData: payload }
+    return { ...state, weatherData: payload, icon: payload.weather }
 
   case WEATHER_FORECAST_DATA_FOR_SITY_NAME:
     return { ...state, weatherData: payload }
