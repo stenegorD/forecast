@@ -10,14 +10,34 @@
     }
 
     .input{
+        display: flex;
+        gap: 20px;
         input{
             width: 400px;
             min-height: 40px;
             border-radius: 3px;
+            background-color: #000000;
+            color: #FFFFFF;
+            opacity: 0.5;
+        }
+        .input_icon{
+            // background-color: #000000;
+            color: #FFFFFF;
+            opacity: 0.6;
+            cursor: pointer;
         }
         button{
             padding: 0px 20px;
             min-height: 46px;
+        }
+    }
+
+    .location_info{
+        display: flex;
+        gap: 10px;
+        color: #FFFFFF;
+        img{
+            max-width: 100%;
         }
     }
 }

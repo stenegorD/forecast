@@ -17,29 +17,28 @@ let date = new Date();
 let options = { weekday: 'long'};
 const currentTime = getCurrentTime();
 const iconCode = icon.map(element => element.icon);
+const currentDescription = icon.map(element=> element.description);
 
-// isLoading ? <Preloader/> : 
 
   return (!weatherData ? <Preloader/> : 
-    <Card sx={{ width: "1000px",
-      backgroundColor: "#000000",
-          color: "#FFFFFF",
-          opacity: "0.6",
+    <Card sx={{ 
+      // width: "1000px",
+      // backgroundColor: "#000000",
+          // color: "#FFFFFF",
+          // opacity: "0.6",
+          background: "none"
       }}>
       <CardContent sx={{display: "flex", justifyContent: "space-between", gap:"4rem", color:"#FFFFFF" }}>
       <Typography component="div" sx={{display:"flex"}}>
       <Typography component="div" sx={{display:"flex", flexDirection: "column"}}>
           
-          
           <CardMedia sx={{width: "150px", objectFit: "contain"}}
             component="img"
-            // image= {`http://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`} 
             image= {`http://openweathermap.org/img/wn/${iconCode}@2x.png`} 
             alt="weather_icon"
           />
           
-          
-          {/* <Typography component="div" sx={{alignSelf:"center", fontSize: "20px"}}>{ isLoading ? <Preloader/> : weatherData?.weather[0]?.description }</Typography> */}
+          <Typography component="div" sx={{alignSelf:"center", fontSize: "20px"}}>{ isLoading ? <Preloader/> : currentDescription }</Typography>
       </Typography>
             <Typography sx={{fontSize:"150px"}}>
                 {isLoading ? <Preloader/> : Math.round(weatherData?.main?.temp)} 
@@ -47,11 +46,9 @@ const iconCode = icon.map(element => element.icon);
             <Typography sx={{fontSize:"70px"}}>°C</Typography>
       </Typography>
       
-
-        
-        <Typography component="div">
+        <Typography component="div" sx={{minWidth: "40%"}}>
              <Typography component="div" sx={{fontSize: "50px"}} >
-                {weatherData?.name || locationData.city}, {locationData.country_name}
+                {weatherData?.name}
              </Typography>
             <Typography variant="body2" sx={{fontSize: "30px"}}>
               {new Intl.DateTimeFormat('en-US', options).format(date)}
@@ -59,11 +56,7 @@ const iconCode = icon.map(element => element.icon);
             <Typography variant="body2" sx={{fontSize: "30px"}}>
               {currentTime}
             </Typography>
-            <CardMedia sx={{maxWidth: "100px"}}
-                component="img"
-                // height="140"
-                image={locationData.country_flag}
-                alt="country_flag"/>
+        
         </Typography>
       </CardContent>
       

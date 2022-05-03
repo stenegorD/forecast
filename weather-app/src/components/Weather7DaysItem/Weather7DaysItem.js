@@ -25,8 +25,8 @@ function Weather7DaysItem({humidity, pressure, uvi, dt, tempDay, tempNight, desc
             component="img"
             />
             <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{description}</Typography>
-            <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{tempDay} °C</Typography>
-            <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{tempNight} °C</Typography>
+            <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{Math.round(tempDay)} °C</Typography>
+            <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{Math.round(tempNight)} °C</Typography>
             <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{humidity} %</Typography>
             <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{pressure} hPa</Typography>
             <Typography sx={{flexBasis:"20%", alignSelf:"center"}}>{uvi}</Typography>

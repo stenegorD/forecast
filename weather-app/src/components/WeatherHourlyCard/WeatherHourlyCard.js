@@ -13,7 +13,7 @@ console.log(weatherHourlySlice);
   <div className={styles.weatherHourlyCard}>
   {weatherHourlySlice.map((element) => <WeatherHourlyItem
   key={element.dt}
-  clouds={element.clouds}
+  pressure={element.pressure}
   humidity={element.humidity}
   temp={element.temp}
   feels_like={element.feels_like}

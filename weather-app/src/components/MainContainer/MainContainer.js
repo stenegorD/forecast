@@ -13,9 +13,10 @@ function MainContainer() {
         <WeatherCard/>
         
         <WeatherTodayCard/>
+        <WeatherHourlyCard/>
         <Weather7DaysCard/>
 
-        <WeatherHourlyCard/>
+        
         
     </div>
   )
