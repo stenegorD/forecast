@@ -6,11 +6,15 @@ import TitleBar from '../TitleBar/TitleBar';
 
 function WeatherHourlyCard() {
   const {weatherHourly} = useSelector(store => store.weatherData);
-const weatherHourlySlice = weatherHourly.slice(0,24)
+const weatherHourlySlice = weatherHourly.slice(0,5);
 console.log(weatherHourlySlice);
-  return (<>
-    <TitleBar title={"Hourly forecast"} />
+  return (<div>
+    <div>
+    <TitleBar title={"Hourly forecast for today"} more />
+    </div>
   <div className={styles.weatherHourlyCard}>
+    
+  
   {weatherHourlySlice.map((element) => <WeatherHourlyItem
   key={element.dt}
   pressure={element.pressure}
@@ -23,7 +27,7 @@ console.log(weatherHourlySlice);
   wind_speed={element.wind_speed}
   />)}
   </div>
-  </>
+  </div>
   )
 }
 

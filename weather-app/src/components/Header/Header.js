@@ -4,6 +4,7 @@ import {weatherForecastSity}  from '../../store/weatherDataActionCreator';
 import styles from './Header.module.scss';
 import {ReactComponent as Umbrella} from '../../assets/umbrella.svg';
 import { FaSearchLocation } from 'react-icons/fa';
+import {BsUmbrellaFill} from 'react-icons/bs'
 
 function Header() {
 
@@ -22,9 +23,10 @@ const [value, setValue] = useState('');
 
   return (
     <div className={styles.header}>
-      
-      
-      <div className={styles.logo}>meteo umbrella </div>
+      <div className={styles.logo}>
+      <BsUmbrellaFill size={"8em"} className={styles.logo_image} />
+      <div className={styles.logo_title}>meteo umbrella </div>
+      </div>
       <div className={styles.location_info}>
         <img src={locationData.country_flag}></img>
         <div>{locationData.city}, {locationData.country_name}</div>
@@ -32,7 +34,6 @@ const [value, setValue] = useState('');
       <div className={styles.input}>
       <input value={value} type="text" placeholder='Search location' onChange={onChange}></input>
       <FaSearchLocation size={"3em"} className={styles.input_icon}  onClick={()=>{handlerForecastSity(value)}}/>
-      {/* <button onClick={()=>{handlerForecastSity(value)}}>search</button> */}
       </div>
         
     </div>

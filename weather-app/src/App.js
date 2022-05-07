@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {userLocationIp}  from './store/weatherDataActionCreator';
+import {getCurrentAirPollution, userLocationIp}  from './store/weatherDataActionCreator';
 import './App.css';
 import Header from './components/Header/Header';
 import MainContainer from './components/MainContainer/MainContainer';

@@ -1,15 +1,14 @@
-import { SET_IS_LOADING, USER_LOCATION_FOR_IP, WEATHER_FORECAST_DATA_FOR_GEOLOCATION, WEATHER_FORECAST_DATA_FOR_SITY_NAME, WEATHER_FOR_WEEK, WEATHER_HISTORY, WEATHER_HOURLY } from "./weatherDataAction"
+import { GET_AIR_POLLUTION, SET_IS_LOADING, USER_LOCATION_FOR_IP, WEATHER_FORECAST_DATA_FOR_GEOLOCATION, WEATHER_FORECAST_DATA_FOR_SITY_NAME, WEATHER_FOR_WEEK, WEATHER_HISTORY, WEATHER_HOURLY } from "./weatherDataAction"
 
 const initialState = {
     weatherData: [],
-    isLaoding: false,
+    isLaoding: true,
     locationData: [],
-    // latitude: "",
-    // longitude: "",
     weatherForWeek: [],
     historyData: [],
     weatherHourly: [],
     icon: [],
+    airPollutionData: [],
 }
 
 const weatherDataReducer = (state = initialState, { type, payload }) => {
@@ -19,7 +18,7 @@ const weatherDataReducer = (state = initialState, { type, payload }) => {
     return { ...state, weatherData: payload, icon: payload.weather }
 
   case WEATHER_FORECAST_DATA_FOR_SITY_NAME:
-    return { ...state, weatherData: payload }
+    return { ...state, weatherData: payload, icon: payload.weather }
 
   case WEATHER_FOR_WEEK:
     return { ...state, weatherForWeek: payload }
@@ -32,6 +31,9 @@ const weatherDataReducer = (state = initialState, { type, payload }) => {
 
   case USER_LOCATION_FOR_IP:
     return { ...state, locationData: payload }
+
+  case GET_AIR_POLLUTION:
+    return { ...state, airPollutionData: payload}
 
   case SET_IS_LOADING:
     return { ...state, isLaoding: payload }

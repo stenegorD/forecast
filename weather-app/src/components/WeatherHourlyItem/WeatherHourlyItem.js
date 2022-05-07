@@ -1,7 +1,8 @@
 import React from 'react'
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { CardMedia } from '@mui/material';
+import { CardMedia, ThemeProvider, createTheme } from '@mui/material';
+import { getHours } from '../../function/getHours';
 
 function WeatherHourlyItem({
   pressure,
@@ -12,35 +13,56 @@ function WeatherHourlyItem({
   description,
   icon,
   wind_speed,}) {
+
+    const theme = createTheme({
+      typography: {
+        fontSize: 12,
+        fontFamily: [
+          "Cairo",
+          "Dosis"
+        ].join(','),
+      },
+    });
     
   return (
+    <ThemeProvider theme={theme}>
     <Card sx={{ 
-      minWidth:"150px",
-      // width: "100%",
       display:"flex",
       flexDirection: "column",
-      alignItems: "center",
-      // gap: "30px",
       padding:"1rem",
       backgroundColor: "#000000",
       color: "#FFFFFF",
       opacity: "0.5",
       marginBottom: "5px",
+      
+      
       }}>
-        <Typography>{dt}</Typography>
-      <CardMedia sx={{maxWidth: "50px"}}
+        
+        <Typography sx={{alignSelf:"start"}}>{getHours(dt+"000")}</Typography>
+      <CardMedia sx={{maxWidth: "50px", alignSelf:"center"}}
       image={`http://openweathermap.org/img/wn/${icon}@2x.png`} 
       component="img"
       />
-        <Typography>{description}</Typography>
-        <Typography>{Math.round(temp)} °C</Typography>
-        <Typography>Feels like {Math.round(feels_like)} °C</Typography>
-        <Typography>Pressure {pressure} hPa</Typography>
-        <Typography>Wind speed {wind_speed} m/sec</Typography>
-        <Typography>Humidity {humidity} %</Typography>
-
-
+        <Typography sx={{alignSelf:"center", }} >{description}</Typography>
+        <Typography sx={{alignSelf:"center"}} >{Math.round(temp)} °C</Typography>
+        <Typography component="div" sx={{display:"flex", justifyContent:"space-between" }}>
+        <Typography >Feels like </Typography>
+        <Typography >{Math.round(feels_like)} °C</Typography>
+        </Typography>
+        <Typography component="div" sx={{display:"flex", justifyContent:"space-between" }}>
+        <Typography >Pressure </Typography>
+        <Typography>{pressure} hPa</Typography>
+        </Typography>
+        <Typography component="div" sx={{display:"flex", justifyContent:"space-between", gap:"10px"}}>
+        <Typography >Wind speed </Typography>
+        <Typography>{wind_speed} m/sec</Typography>
+        </Typography>
+        <Typography component="div" sx={{display:"flex", justifyContent:"space-between" }}>
+        <Typography >Humidity </Typography>
+        <Typography>{humidity} %</Typography>
+        </Typography>
     </Card>
+    </ThemeProvider>
   )
 }
 
