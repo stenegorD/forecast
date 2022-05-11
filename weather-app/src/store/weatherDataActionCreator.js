@@ -50,6 +50,13 @@ export const weatherForecastSity = (sityName) => async (dispatch, getState) => {
         const resultHourlyForecast = await getHourlyForecastData(latitude, longitude);
         console.log(resultHourlyForecast);
         dispatch({type: WEATHER_HOURLY, payload: resultHourlyForecast.data.hourly })
+        //current air pollution
+    const resultAirPollution = await getAirPullution(latitude, longitude);
+    console.log(resultAirPollution.data.list);
+    if(resultAirPollution.status === 200){
+        dispatch({type: GET_AIR_POLLUTION, payload: resultAirPollution.data.list})
+        // dispatch(setIsLoadingData(false))
+    }
     }
     
 }
@@ -83,12 +90,10 @@ export const userLocationIp = () => async (dispatch, getStore) => {
     //current forecast
     // dispatch(setIsLoadingData(true))
     const resultCurrentForecast = await getCurrentWeatherData(latitude, longitude);
-    console.log(resultCurrentForecast);
     dispatch({type: WEATHER_FORECAST_DATA_FOR_GEOLOCATION, payload: resultCurrentForecast.data})
     
     //weekly forecast
-     const resultWeeklyForecast = await getMoreWeatherData(latitude, longitude);
-     console.log(resultWeeklyForecast.data.daily);
+    const resultWeeklyForecast = await getMoreWeatherData(latitude, longitude);
     dispatch({type: WEATHER_FOR_WEEK, payload: resultWeeklyForecast.data.daily})
     
     
@@ -99,9 +104,9 @@ export const userLocationIp = () => async (dispatch, getStore) => {
     
     //current air pollution
     const resultAirPollution = await getAirPullution(latitude, longitude);
-    console.log(resultAirPollution);
+    console.log(resultAirPollution.data.list);
     if(resultAirPollution.status === 200){
-        dispatch({type: GET_AIR_POLLUTION, payload: resultAirPollution})
+        dispatch({type: GET_AIR_POLLUTION, payload: resultAirPollution.data.list})
         // dispatch(setIsLoadingData(false))
     }
     
@@ -124,7 +129,7 @@ export const getCurrentAirPollution = () => async (dispatch, getStore) => {
     const latitude = Math.floor(weatherData.locationData.latitude * 100) / 100;
     const longitude = Math.floor(weatherData.locationData.longitude * 100) / 100;
     const resultAirPollution = await getAirPullution(latitude, longitude);
-    console.log(resultAirPollution);
-    dispatch({type: GET_AIR_POLLUTION, payload: resultAirPollution})
+    console.log(resultAirPollution.data.list);
+    dispatch({type: GET_AIR_POLLUTION, payload: resultAirPollution.data.list})
 
 }

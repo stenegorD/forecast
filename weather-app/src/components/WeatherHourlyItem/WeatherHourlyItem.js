@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import { CardMedia, ThemeProvider, createTheme } from '@mui/material';
@@ -34,8 +34,7 @@ function WeatherHourlyItem({
       color: "#FFFFFF",
       opacity: "0.5",
       marginBottom: "5px",
-      
-      
+      minWidth:"145px",
       }}>
         
         <Typography sx={{alignSelf:"start"}}>{getHours(dt+"000")}</Typography>

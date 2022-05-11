@@ -1,11 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material';
 
 function Weather7DaysItem({humidity, pressure, uvi, dt, tempDay, tempNight, description, icon }) {
-    const {weatherForWeek} = useSelector(store => store.weatherData);
     
   return (
   <>
