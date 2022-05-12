@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
  function  Preloader () {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', justifyContent: "center", padding:"1rem" }}>
       <CircularProgress />
     </Box>
   );

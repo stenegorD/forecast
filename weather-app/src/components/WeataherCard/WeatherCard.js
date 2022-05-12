@@ -10,7 +10,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 
 function WeatherCard() {
 
-const {weatherData, locationData, isLoading, icon} = useSelector(store => store.weatherData)
+const {weatherData, isLoading, icon} = useSelector(store => store.weatherData)
 console.log(weatherData);
 let date = new Date();
 let options = { weekday: 'long'};
@@ -27,17 +27,13 @@ const theme = createTheme({
     ].join(','),
   },
 });
+const roundTemp = Math.round(weatherData?.main?.temp)
 
-  return (isLoading ? (<Preloader/>) : 
+  return (isNaN(roundTemp) ? (<Preloader/>) : 
   (<ThemeProvider theme={theme}>
-    <Card sx={{ 
-      width: "100%",
-          background: "none",
-          boxShadow: "none"
-          
-      }}>
+    <Card sx={{ width: "100%", background: "none", boxShadow: "none"}}>
       <CardContent sx={{display: "flex", justifyContent: "space-between", gap:"4rem", color:"#FFFFFF" }}>
-      <Typography component="div" sx={{display:"flex", gap:"10px"}}>
+      <Typography component="div" sx={{display:"flex", gap:"10px", minWidth:"400px"}}>
       <Typography component="div" sx={{display:"flex", flexDirection: "column"}}>
           
           <CardMedia sx={{width: "150px", objectFit: "contain"}}
@@ -49,7 +45,7 @@ const theme = createTheme({
           <Typography component="div" sx={{alignSelf:"center", fontSize: "20px"}}>{currentDescription}</Typography>
       </Typography>
             <Typography sx={{fontSize:"150px"}}>
-                {isLoading ? <Preloader/> : Math.round(weatherData?.main?.temp)} 
+                {roundTemp} 
             </Typography>
             <Typography sx={{fontSize:"70px"}}>°C</Typography>
       </Typography>

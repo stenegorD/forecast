@@ -4,9 +4,7 @@ import Typography from '@mui/material/Typography';
 import {CgMore} from 'react-icons/cg';
 import {BsArrowRight, BsArrowLeft} from 'react-icons/bs';
 
-function TitleBar({title, more, arrow, handleArrowClick, handleClickMore}) {
-
-
+function TitleBar({title, more, arrow, handleArrowClick, handleClickMore, hideWeeklyForecast}) {
 
   return (
       <Card sx={{
@@ -20,7 +18,7 @@ function TitleBar({title, more, arrow, handleArrowClick, handleClickMore}) {
       }}>
       
         <Typography sx={{paddingLeft: "1rem", alignSelf:"center"}}>{title}</Typography>
-        {more ? <CgMore size={"2em"} onClick={handleClickMore} style={{marginRight: "1rem", cursor:"pointer"}} /> : null}
+        {more ? <CgMore size={"2em"} onClick={handleClickMore || hideWeeklyForecast} style={{marginRight: "1rem", cursor:"pointer"}} /> : null}
         {arrow ? 
         <Typography component={"div"} sx={{display:"flex"}}>
           <BsArrowLeft id='BsArrowLeft' onClick={(event)=>{handleArrowClick(event)}} size={"2em"} style={{marginRight: "1rem", cursor:"pointer"}} />

@@ -8,7 +8,7 @@ import {BsUmbrellaFill} from 'react-icons/bs'
 function Header() {
 
   const dispatch = useDispatch();
-  const {weatherData, locationData, isLoading} = useSelector(store => store.weatherData)
+  const {locationData} = useSelector(store => store.weatherData)
 
 function handlerForecastSity(sity) {
     dispatch(weatherForecastSity(sity))

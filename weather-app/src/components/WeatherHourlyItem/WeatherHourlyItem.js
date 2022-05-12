@@ -34,7 +34,8 @@ function WeatherHourlyItem({
       color: "#FFFFFF",
       opacity: "0.5",
       marginBottom: "5px",
-      minWidth:"145px",
+      minWidth:"150px",
+      transition: "2s"
       }}>
         
         <Typography sx={{alignSelf:"start"}}>{getHours(dt+"000")}</Typography>

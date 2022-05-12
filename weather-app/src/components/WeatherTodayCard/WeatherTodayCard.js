@@ -7,7 +7,7 @@ import TitleBar from '../TitleBar/TitleBar';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { convertMsToHM } from '../../function/convertMsToHM';
 import CurrentAirPollutionCard from '../CurrentAirPollution/CurrentAirPollutionCard';
-import {WiHumidity, WiSunrise, WiSunset, WiBarometer, WiThermometer, WiWindy, WiStrongWind, WiCloud} from 'react-icons/wi';
+import {WiHumidity, WiSunrise, WiSunset, WiBarometer, WiThermometer, WiWindy, WiStrongWind, WiCloud, WiSnow, WiRain} from 'react-icons/wi';
 
 function WeatherTodayCard() {
 
@@ -122,6 +122,7 @@ function WeatherTodayCard() {
             {weatherData.rain ? 
             <Typography sx={forecastStyles}>
               <Typography>Rain </Typography>
+              <WiRain size={"1.5rem"} ></WiRain>
               <Typography>{weatherData?.rain?.["1h"]} mm </Typography>
             </Typography> 
             : null}
@@ -129,13 +130,14 @@ function WeatherTodayCard() {
             {weatherData.snow ? 
             <Typography sx={forecastStyles}>
               <Typography>Snow </Typography>
+              <WiSnow size={"1.5rem"} ></WiSnow>
               <Typography>{weatherData?.snow?.["1h"]} mm </Typography>
             </Typography> 
             : null}
-</Typography>
-<Typography component={"div"} sx={{paddingTop:"1rem"}} >
-          <CurrentAirPollutionCard moreWeatherToday={moreWeatherToday} />
-</Typography>
+          </Typography>
+          <Typography component={"div"} sx={{paddingTop: "1rem"}} >
+              <CurrentAirPollutionCard moreWeatherToday={moreWeatherToday} />
+          </Typography>
           </CardContent>
 
         </Card>
@@ -145,4 +147,4 @@ function WeatherTodayCard() {
       )
     }
     
-    export default WeatherTodayCard;
+export default WeatherTodayCard;
