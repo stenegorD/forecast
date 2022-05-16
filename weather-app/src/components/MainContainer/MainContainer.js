@@ -11,19 +11,18 @@ function MainContainer() {
   const {isLoading} = useSelector(store => store.weatherData)
   return (
     <div className={styles.mainContainer}>
-        
-        <WeatherCard/>
-        {isLoading ? <Preloader/>  : <WeatherTodayCard/>}
-        
-        <div className={styles.cardContainer}>
+      {isLoading ? <Preloader/> : 
+         <>
+      <WeatherCard/>
+      <WeatherTodayCard/>
+      <div className={styles.cardContainer}>
           <WeatherHourlyCard/>
-        </div>
+      </div>
         <Weather7DaysCard/>
-
-        
-        
+        </>
+      }              
     </div>
   )
 }
 
-export default MainContainer;
+export default React.memo(MainContainer);

@@ -30,4 +30,4 @@ function TitleBar({title, more, arrow, handleArrowClick, handleClickMore, hideWe
   )
 }
 
-export default TitleBar;
+export default React.memo(TitleBar);

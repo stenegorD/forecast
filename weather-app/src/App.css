@@ -18,3 +18,25 @@ body{
   background-size: cover;
   background-position: center;
 }
+
+
+
+
+
+.ais-InstantSearch {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.search-panel {
+  display: flex;
+}
+
+.search-panel__filters {
+  margin-right: 1rem;
+}
+
+.search-panel__results {
+  flex: 1;
+}

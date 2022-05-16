@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import TitleBar from '../TitleBar/TitleBar';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { convertMsToHM } from '../../function/convertMsToHM';
 import CurrentAirPollutionCard from '../CurrentAirPollution/CurrentAirPollutionCard';
 import {WiHumidity, WiSunrise, WiSunset, WiBarometer, WiThermometer, WiWindy, WiStrongWind, WiCloud, WiSnow, WiRain} from 'react-icons/wi';
 
+
 function WeatherTodayCard() {
 
-    const {weatherData} = useSelector(store => store.weatherData);
+    const {weatherData} = useSelector(store => store.weatherData, shallowEqual);
     const [moreWeatherToday, setMoreWeatherToday] = useState(false);
 
     const sunsetTime = convertMsToHM(weatherData?.sys?.sunset+ "000");
@@ -34,12 +35,10 @@ function WeatherTodayCard() {
       gap: "5px"
     }
    
-
     const handleClickMore = () =>{
       setMoreWeatherToday(!moreWeatherToday)
     }
-    
-    
+   
 
       return (
         <div><TitleBar title={"Forecast for today"} more handleClickMore={handleClickMore}></TitleBar>
@@ -136,7 +135,9 @@ function WeatherTodayCard() {
             : null}
           </Typography>
           <Typography component={"div"} sx={{paddingTop: "1rem"}} >
+              
               <CurrentAirPollutionCard moreWeatherToday={moreWeatherToday} />
+              
           </Typography>
           </CardContent>
 
@@ -147,4 +148,4 @@ function WeatherTodayCard() {
       )
     }
     
-export default WeatherTodayCard;
+export default React.memo(WeatherTodayCard);

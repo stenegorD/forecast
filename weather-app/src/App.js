@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import MainContainer from './components/MainContainer/MainContainer';
 import Footer from './components/Footer/Footer';
+import ButtonScrollToTop from './components/ButtonScrollToTop/ButtonScrollToTop';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Header/>
       <MainContainer/>
       <Footer/>
+      <ButtonScrollToTop/>
     </div>
   
   );

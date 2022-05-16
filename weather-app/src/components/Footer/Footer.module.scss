@@ -1,7 +1,9 @@
 .footer{
     display: flex;
     flex: 0 0 auto;
-    padding: 50px 0px 50px 0px;
+    justify-content: center;
+    gap: 1rem;
+    padding: 30px 0px 30px 0px;
     background-color: #000000;
     color: #FFFFFF;
     opacity: 0.4;

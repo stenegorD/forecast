@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getCurrentTime } from '../../function/getCurrentTime';
-import Preloader from '../Preloader/Preloader';
 import { ThemeProvider, createTheme } from '@mui/material';
 
 function WeatherCard() {
 
-const {weatherData, isLoading, icon} = useSelector(store => store.weatherData)
-console.log(weatherData);
+const {weatherData, icon} = useSelector(store => store.weatherData)
+
 let date = new Date();
 let options = { weekday: 'long'};
 const currentTime = getCurrentTime();
 const iconCode = icon.map(element => element.icon);
 const currentDescription = icon.map(element=> element.description);
-
+const roundTemp = Math.round(weatherData?.main?.temp);
 
 const theme = createTheme({
   typography: {
@@ -27,10 +26,10 @@ const theme = createTheme({
     ].join(','),
   },
 });
-const roundTemp = Math.round(weatherData?.main?.temp)
 
-  return (isNaN(roundTemp) ? (<Preloader/>) : 
-  (<ThemeProvider theme={theme}>
+
+  return (
+  <ThemeProvider theme={theme}>
     <Card sx={{ width: "100%", background: "none", boxShadow: "none"}}>
       <CardContent sx={{display: "flex", justifyContent: "space-between", gap:"4rem", color:"#FFFFFF" }}>
       <Typography component="div" sx={{display:"flex", gap:"10px", minWidth:"400px"}}>
@@ -60,14 +59,12 @@ const roundTemp = Math.round(weatherData?.main?.temp)
             <Typography variant="body2" sx={{fontSize: "30px"}}>
               {currentTime}
             </Typography>
-        
         </Typography>
-      </CardContent>
-      
+      </CardContent>  
     </Card>
-    </ThemeProvider>)
+    </ThemeProvider>
   );
     
 }
 
-export default WeatherCard;
+export default React.memo(WeatherCard);

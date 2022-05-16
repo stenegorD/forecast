@@ -10,15 +10,18 @@ function WeatherHourlyCard() {
   const [finalIndex, setFinalIndex] = useState(5);
   const {weatherHourly} = useSelector(store => store.weatherData);
   const weatherHourlySlice = weatherHourly.slice(initialIndex, finalIndex);
+ 
 
   const handleArrowClick = (event) => {
     if(finalIndex !== 45 && event.currentTarget.id === 'BsArrowRight'){
       setInitialIndex(initialIndex + 5)
       setFinalIndex(finalIndex + 5)
+      
     }    
     if(initialIndex !== 0 && event.currentTarget.id === 'BsArrowLeft'){
       setFinalIndex(finalIndex - 5)
       setInitialIndex(initialIndex - 5)
+      
     }   
   }
 
@@ -27,21 +30,22 @@ function WeatherHourlyCard() {
     <TitleBar title={"Hourly forecast for today"} arrow handleArrowClick={handleArrowClick}/>
     </div>
   <div className={styles.weatherHourlyCard}>
-    
-  {weatherHourlySlice.map((element) => <WeatherHourlyItem
-  key={element.dt}
-  pressure={element.pressure}
-  humidity={element.humidity}
-  temp={element.temp}
-  feels_like={element.feels_like}
-  dt={element.dt}
-  description={element.weather[0].description}
-  icon={element.weather[0].icon}
-  wind_speed={element.wind_speed}
-  />)}
+  
+            {weatherHourlySlice.map((element) =>  
+            <WeatherHourlyItem
+            key={element.dt}
+            pressure={element.pressure}
+            humidity={element.humidity}
+            temp={element.temp}
+            feels_like={element.feels_like}
+            dt={element.dt}
+            description={element.weather[0].description}
+            icon={element.weather[0].icon}
+            wind_speed={element.wind_speed}
+            /> )}
   </div>
   </div>
   )
 }
 
-export default WeatherHourlyCard;
+export default React.memo(WeatherHourlyCard);

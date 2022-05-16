@@ -2,7 +2,7 @@ import { GET_AIR_POLLUTION, SET_IS_LOADING, USER_LOCATION_FOR_IP, WEATHER_FORECA
 
 const initialState = {
     weatherData: [],
-    isLaoding: true,
+    isLoading: true,
     locationData: [],
     weatherForWeek: [],
     historyData: [],
@@ -36,7 +36,7 @@ const weatherDataReducer = (state = initialState, { type, payload }) => {
     return { ...state, airPollutionData: payload}
 
   case SET_IS_LOADING:
-    return { ...state, isLaoding: payload }
+    return { ...state, isLoading: payload }
 
   default:
     return state

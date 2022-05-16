@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
+import Fade from '@mui/material/Fade';
 
 function CurrentAirPollutionItem({
     aqi,
@@ -45,7 +46,10 @@ function CurrentAirPollutionItem({
               <Typography>AQI </Typography>
               <Typography>{aqiConvertResult}</Typography>
             </Typography>
-            {moreWeatherToday ? <Typography sx={{display:"flex", justifyContent:"space-between", paddingTop:"1rem" }}>
+            <Fade in={moreWeatherToday} timeout={500} unmountOnExit>
+               <div>
+            {moreWeatherToday ? 
+            <Typography sx={{display:"flex", justifyContent:"space-between", paddingTop:"1rem" }}>
                 <Typography sx={airPollutionStyles}>
               <Typography>CO </Typography>
               <Typography >{co} μg/m <sup>3</sup></Typography>
@@ -86,11 +90,12 @@ function CurrentAirPollutionItem({
               <Typography>{so2} μg/m <sup>3</sup></Typography>
                  </Typography>
 
-                        </Typography>
+               </Typography>
             : null}
-            
+            </div>
+             </Fade>
     </>
   )
 }
 
-export default CurrentAirPollutionItem
+export default React.memo(CurrentAirPollutionItem);

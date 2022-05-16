@@ -5,6 +5,7 @@ import Weather7DaysItem from '../Weather7DaysItem/Weather7DaysItem';
 import Preloader from '../Preloader/Preloader';
 import { ThemeProvider, createTheme } from '@mui/material';
 
+
 function Weather7DaysCard() {
 
   const {weatherForWeek, isLoading} = useSelector(store => store.weatherData);
@@ -23,10 +24,14 @@ function Weather7DaysCard() {
     setWeeklyForecast(!weeklyForecast);
   }
 
-  return isLoading ? <Preloader/>  : ( <div>
+  return ( <div>
         <TitleBar title={"Weekly forecast"} more hideWeeklyForecast={hideWeeklyForecast}></TitleBar>
-       {weeklyForecast ? <ThemeProvider theme={theme}>
-            { weatherForWeek.map((element) => <Weather7DaysItem key={element.dt} 
+           
+       {weeklyForecast ? 
+       <ThemeProvider theme={theme}>
+      
+            { weatherForWeek.map((element) =>  
+            <Weather7DaysItem key={element.dt} 
             description={element.weather[0].description}
             icon={element.weather[0].icon}
             humidity={element.humidity} 
@@ -35,12 +40,13 @@ function Weather7DaysCard() {
             pressure={element.pressure}
             uvi={element.uvi}
             dt={element.dt}
-            />
-            )}
-        </ThemeProvider> : null}  
+            weeklyForecast={weeklyForecast}
+            />          )}
+        </ThemeProvider> 
+        : null}    
   </div>
     
   )
 }
 
-export default Weather7DaysCard;
+export default React.memo(Weather7DaysCard);

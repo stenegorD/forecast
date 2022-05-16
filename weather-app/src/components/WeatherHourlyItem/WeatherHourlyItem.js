@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import { CardMedia, ThemeProvider, createTheme } from '@mui/material';
 import { getHours } from '../../function/getHours';
+import Fade from '@mui/material/Fade';
 
 function WeatherHourlyItem({
   pressure,
@@ -12,7 +13,8 @@ function WeatherHourlyItem({
   dt,
   description,
   icon,
-  wind_speed,}) {
+  wind_speed,
+  }) {
 
     const theme = createTheme({
       typography: {
@@ -25,7 +27,10 @@ function WeatherHourlyItem({
     });
     
   return (
+    <Fade timeout={1000} in={Boolean(dt)} unmountOnExit>
+      <div>
     <ThemeProvider theme={theme}>
+
     <Card sx={{ 
       display:"flex",
       flexDirection: "column",
@@ -62,8 +67,11 @@ function WeatherHourlyItem({
         <Typography>{humidity} %</Typography>
         </Typography>
     </Card>
+         
     </ThemeProvider>
+    </div>
+    </Fade>
   )
 }
 
-export default WeatherHourlyItem
+export default React.memo(WeatherHourlyItem);
