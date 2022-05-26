@@ -1,38 +1,21 @@
 import algoliasearch from 'algoliasearch/lite';
-import React, { Component } from 'react';
-import { InstantSearch, ClearRefinements } from 'react-instantsearch-dom';
+import { InstantSearch } from 'react-instantsearch-dom';
 import Places from './Widget';
-// import './App.css';
 
 const searchClient = algoliasearch(
-  'EJOAUCVFSP',
-  '5e9ef49864b69749d0dd786a02b2c2ea'
+  'latency',
+  '6be0576ff61c053d5f9a3225e2a90f76'
 );
 
-class Autocomplete extends Component {
-  render() {
-    return (
-      <div className="ais-InstantSearch">
-        <h1>React InstantSearch Places</h1>
-        <InstantSearch indexName="airports" searchClient={searchClient}>
-          <div className="search-panel">
-            <div className="search-panel__filters">
-              <ClearRefinements />
-            </div>
-
-            <div className="search-panel__results">
-              <Places
-                defaultRefinement={{
-                  lat: 37.7793,
-                  lng: -122.419,
-                }}
-              />
-            </div>
-          </div>
-        </InstantSearch>
-      </div>
-    );
-  }
-}
+const Autocomplete = () => (
+  <InstantSearch indexName="airports" searchClient={searchClient} >
+    <Places 
+      defaultRefinement={{
+        lat: 37.7793,
+        lng: -122.419
+      }}
+    />
+  </InstantSearch>
+);
 
 export default Autocomplete;

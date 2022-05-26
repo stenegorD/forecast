@@ -14,4 +14,4 @@ function CurrentAirPollutionCard({moreWeatherToday}) {
   )
 }
 
-export default CurrentAirPollutionCard;
+export default React.memo(CurrentAirPollutionCard);

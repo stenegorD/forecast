@@ -19,7 +19,11 @@ function WeatherTodayCard() {
     const sunriseTime = convertMsToHM(weatherData?.sys?.sunrise + "000");
 
     const theme = createTheme({
+      // '@media screen and (max-width: 479px)': {
+      //   flexWrap: "wrap"
+      // },
       typography: {
+        
         fontSize: 12,
         fontFamily: [
           "Cairo",
@@ -32,7 +36,8 @@ function WeatherTodayCard() {
       display:"flex", 
       flexDirection:"column", 
       alignItems:"center", 
-      gap: "5px"
+      gap: "5px",
+      // '@media screen and (max-width: 479px)': {flexDirection:"row"}
     }
    
     const handleClickMore = () =>{
@@ -48,14 +53,20 @@ function WeatherTodayCard() {
           color: "#FFFFFF",
           opacity: "0.5",
           padding:"0",
-          boxShadow:"none"
+          boxShadow:"none",
         }}>
           <CardContent sx={{
             display:"flex", 
             justifyContent: "space-between",
-            flexDirection:"column"
+            flexDirection:"column",
             }}>
-              <Typography component={"div"} sx={{display:"flex", justifyContent:"space-between"}} >
+              <Typography component={"div"} sx={{display:"flex", 
+              justifyContent:"space-between",
+              '@media screen and (max-width: 479px)': {
+                flexDirection:"column", 
+                // flexWrap:"wrap",
+                gap:"1rem"}
+              }} >
           
           <Typography sx={forecastStyles}>
               <Typography>Feels like </Typography>

@@ -40,7 +40,10 @@ function WeatherHourlyItem({
       opacity: "0.5",
       marginBottom: "5px",
       minWidth:"150px",
-      transition: "2s"
+      transition: "2s",
+      '@media screen and (max-width: 479px)': {
+        // width:"100%"
+      }
       }}>
         
         <Typography sx={{alignSelf:"start"}}>{getHours(dt+"000")}</Typography>

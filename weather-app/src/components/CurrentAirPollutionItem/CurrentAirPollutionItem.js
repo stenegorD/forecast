@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import Fade from '@mui/material/Fade';
+import {GiGasMask} from 'react-icons/gi';
 
 function CurrentAirPollutionItem({
     aqi,
@@ -38,18 +39,27 @@ function CurrentAirPollutionItem({
       flexDirection:"column", 
       alignItems:"center", 
       gap: "10px",
+      '@media screen and (max-width: 479px)': {
+         flexDirection:"row",
+         justifyContent:"space-between"  
+      }
     }
 
   return (<>
     
-            <Typography sx={{display:"flex",  justifyContent:"space-between", borderTop: "1px solid #FFFFFF", paddingTop:"1rem"}}>
+            <Typography sx={{display:"flex",  justifyContent:"center", gap:"2rem", borderTop: "1px solid #FFFFFF", paddingTop:"1rem"}}>
               <Typography>AQI </Typography>
+              <GiGasMask size={"1.5rem"}/>
               <Typography>{aqiConvertResult}</Typography>
             </Typography>
             <Fade in={moreWeatherToday} timeout={500} unmountOnExit>
                <div>
             {moreWeatherToday ? 
-            <Typography sx={{display:"flex", justifyContent:"space-between", paddingTop:"1rem" }}>
+            <Typography sx={{display:"flex", justifyContent:"space-between", paddingTop:"1rem",
+            '@media screen and (max-width: 479px)': {
+               flexDirection:"column",
+            } 
+               }}>
                 <Typography sx={airPollutionStyles}>
               <Typography>CO </Typography>
               <Typography >{co} μg/m <sup>3</sup></Typography>

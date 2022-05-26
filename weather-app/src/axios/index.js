@@ -11,19 +11,9 @@ instance.interceptors.response.use(
       data: response.data,
     };
   },
-  (err) => {
-    console.log(err);
-    return Promise.reject(err);
-  }
-);
+  (err) => Promise.reject(err)
+)
 
-instance.interceptors.request.use((config) => {
-  if (localStorage.getItem("authToken")) {
-    config.headers.Authorization = `${JSON.parse(
-      localStorage.getItem("authToken")
-    )}`;
-  }
-  return config;
-});
+instance.interceptors.request.use((config) =>  config);
 
 export default instance;

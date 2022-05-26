@@ -1,7 +1,7 @@
 import { createConnector } from 'react-instantsearch-dom';
 
 export default createConnector({
-  displayName: 'AlgoliaGeoSearch',
+  displayName: 'AlgoliaPlaces',
 
   getProvidedProps() {
     return {};

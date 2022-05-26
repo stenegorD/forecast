@@ -1,41 +1,40 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {weatherForecastSity}  from '../../store/weatherDataActionCreator';
+import {weatherForecastCity}  from '../../store/weatherDataActionCreator';
 import styles from './Header.module.scss';
 import { FaSearchLocation } from 'react-icons/fa';
 import {BsUmbrellaFill} from 'react-icons/bs';
-import Autocomplete from '../Autocomplete/Autocomplete';
+import AutocompleteInput from '../Autocomplete/AutocompleteInput';
+
 
 function Header() {
 
   const dispatch = useDispatch();
   const {locationData} = useSelector(store => store.weatherData)
+  const [city, setCity] = useState('');
 
-function handlerForecastSity(sity) {
-    dispatch(weatherForecastSity(sity))
+function handlerForecastCity(city) {
+  if(city.length > 3)
+    dispatch(weatherForecastCity(city))
 }
-
-const [value, setValue] = useState('');
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
 
 
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>
-      <BsUmbrellaFill size={"8rem"} className={styles.logo_image} />
-      <div className={styles.logo_title}>meteo umbrella </div>
-      </div>
-      <div className={styles.location_info}>
-        <img src={locationData.country_flag}></img>
-        <div>{locationData.city}, {locationData.country_name}</div>
+      <div className={styles.header_logo}>
+        <div className={styles.logo}>
+          <BsUmbrellaFill size={"8rem"} className={styles.logo_image} />
+        <div className={styles.logo_title}>meteo umbrella </div>
+        </div>
+        <div className={styles.location_info}>
+          <img src={locationData.country_flag}></img>
+          <div>{locationData.city}, {locationData.country_name}</div>
+        </div>
       </div>
       <div className={styles.input}>
-      <input value={value} type="text" placeholder='Search location' onChange={onChange} onKeyPress={(e) => e.key === 'Enter' && handlerForecastSity(value)}></input>
-      <FaSearchLocation size={"3rem"} className={styles.input_icon}  onClick={()=>{handlerForecastSity(value)}}/>
-      </div>
-        <Autocomplete/>
+      <AutocompleteInput setCity={setCity}/>
+      <FaSearchLocation size={"3rem"} className={styles.input_icon}  onClick={()=>{handlerForecastCity(city)}} />
+      </div> 
     </div>
   )
 }

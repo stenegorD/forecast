@@ -17,7 +17,7 @@ function TitleBar({title, more, arrow, handleArrowClick, handleClickMore, hideWe
         justifyContent:"space-between",
       }}>
       
-        <Typography sx={{paddingLeft: "1rem", alignSelf:"center"}}>{title}</Typography>
+        <Typography sx={{paddingLeft: "1rem", alignSelf:"center", fontFamily: "Cairo"}}>{title}</Typography>
         {more ? <CgMore size={"2em"} onClick={handleClickMore || hideWeeklyForecast} style={{marginRight: "1rem", cursor:"pointer"}} /> : null}
         {arrow ? 
         <Typography component={"div"} sx={{display:"flex"}}>
