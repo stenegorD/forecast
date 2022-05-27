@@ -19,11 +19,7 @@ function WeatherTodayCard() {
     const sunriseTime = convertMsToHM(weatherData?.sys?.sunrise + "000");
 
     const theme = createTheme({
-      // '@media screen and (max-width: 479px)': {
-      //   flexWrap: "wrap"
-      // },
       typography: {
-        
         fontSize: 12,
         fontFamily: [
           "Cairo",
@@ -37,9 +33,9 @@ function WeatherTodayCard() {
       flexDirection:"column", 
       alignItems:"center", 
       gap: "5px",
-      // '@media screen and (max-width: 479px)': {flexDirection:"row"}
+      '@media screen and (max-width: 479px)': {flexDirection:"row", justifyContent:"space-between" }
     }
-   
+    const mobileStyles={'@media screen and (max-width: 479px)': {flexBasis: "25%",  }}
     const handleClickMore = () =>{
       setMoreWeatherToday(!moreWeatherToday)
     }
@@ -55,93 +51,89 @@ function WeatherTodayCard() {
           padding:"0",
           boxShadow:"none",
         }}>
-          <CardContent sx={{
-            display:"flex", 
-            justifyContent: "space-between",
-            flexDirection:"column",
-            }}>
+          <CardContent>
               <Typography component={"div"} sx={{display:"flex", 
               justifyContent:"space-between",
               '@media screen and (max-width: 479px)': {
                 flexDirection:"column", 
-                // flexWrap:"wrap",
-                gap:"1rem"}
+                gap:"0px",
+                }
               }} >
           
           <Typography sx={forecastStyles}>
-              <Typography>Feels like </Typography>
-              <WiThermometer  size={"1.5rem"} />
-              <Typography>{Math.round(weatherData?.main?.feels_like)} °C</Typography>
+              <Typography sx={mobileStyles}>Feels like </Typography>
+              <WiThermometer sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{Math.round(weatherData?.main?.feels_like)} °C</Typography>
             </Typography>
 
           <Typography sx={forecastStyles}>
-              <Typography>Max temp </Typography>
-              <WiThermometer size={"1.5rem"} />
-              <Typography>{Math.round(weatherData?.main?.temp_max)} °C</Typography>
+              <Typography sx={mobileStyles}>Max temp </Typography>
+              <WiThermometer sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{Math.round(weatherData?.main?.temp_max)} °C</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography>Min temp </Typography>
-              <WiThermometer size={"1.5rem"} />
-              <Typography>{Math.round(weatherData?.main?.temp_min)} °C</Typography>
+              <Typography sx={mobileStyles}>Min temp </Typography>
+              <WiThermometer sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{Math.round(weatherData?.main?.temp_min)} °C</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography >Cloudiness </Typography>
-              <WiCloud size={"1.5rem"} />
-              <Typography>{weatherData?.clouds?.all} %</Typography>
+              <Typography sx={mobileStyles}>Cloudiness </Typography>
+              <WiCloud sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{weatherData?.clouds?.all} %</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography>Humidity </Typography>
-              <WiHumidity size={"1.5rem"} />
-              <Typography>{weatherData?.main?.humidity} %</Typography>
+              <Typography sx={mobileStyles}>Humidity </Typography>
+              <WiHumidity sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{weatherData?.main?.humidity} %</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography>Pressure </Typography>
-              <WiBarometer size={"1.5rem"} />
-              <Typography>{weatherData?.main?.pressure} hPa</Typography>
+              <Typography sx={mobileStyles}>Pressure </Typography>
+              <WiBarometer sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{weatherData?.main?.pressure} hPa</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography>Wind speed </Typography>
-              <WiWindy size={"1.5rem"}/>
-              <Typography>{weatherData?.wind?.speed} m/sec</Typography>
+              <Typography sx={mobileStyles}>Wind speed </Typography>
+              <WiWindy sx={mobileStyles} size={"1.5rem"}/>
+              <Typography sx={mobileStyles}>{weatherData?.wind?.speed} m/sec</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography>Wind gust </Typography>
-              <WiStrongWind size={"1.5rem"} />
-              <Typography>{weatherData?.wind?.gust} m/sec</Typography>
+              <Typography sx={mobileStyles}>Wind gust </Typography>
+              <WiStrongWind sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{weatherData?.wind?.gust} m/sec</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography>Sunset </Typography>
-              <WiSunset size={"1.5rem"} />
-              <Typography>{sunsetTime}</Typography>
+              <Typography sx={mobileStyles}>Sunset </Typography>
+              <WiSunset sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{sunsetTime}</Typography>
             </Typography>
 
             <Typography sx={forecastStyles}>
-              <Typography>Sunrise </Typography>
-              <WiSunrise size={"1.5rem"} />
-              <Typography>{sunriseTime}</Typography>
+              <Typography sx={mobileStyles}>Sunrise </Typography>
+              <WiSunrise sx={mobileStyles} size={"1.5rem"} />
+              <Typography sx={mobileStyles}>{sunriseTime}</Typography>
             </Typography>
 
 
             {weatherData.rain ? 
             <Typography sx={forecastStyles}>
-              <Typography>Rain </Typography>
-              <WiRain size={"1.5rem"} ></WiRain>
-              <Typography>{weatherData?.rain?.["1h"]} mm </Typography>
+              <Typography sx={mobileStyles}>Rain </Typography>
+              <WiRain sx={mobileStyles} size={"1.5rem"} ></WiRain>
+              <Typography sx={mobileStyles}>{weatherData?.rain?.["1h"]} mm </Typography>
             </Typography> 
             : null}
 
             {weatherData.snow ? 
             <Typography sx={forecastStyles}>
-              <Typography>Snow </Typography>
-              <WiSnow size={"1.5rem"} ></WiSnow>
-              <Typography>{weatherData?.snow?.["1h"]} mm </Typography>
+              <Typography sx={mobileStyles}>Snow </Typography>
+              <WiSnow sx={mobileStyles} size={"1.5rem"} ></WiSnow>
+              <Typography sx={mobileStyles}>{weatherData?.snow?.["1h"]} mm </Typography>
             </Typography> 
             : null}
           </Typography>

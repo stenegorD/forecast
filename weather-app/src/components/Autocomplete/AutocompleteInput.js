@@ -10,7 +10,7 @@ function AutocompleteInput({setCity}) {
 	return (
 		<div style={{opacity:0.9, color: "#000000"}}>
 			{/* {error && <ErrorMessageComponent/>} */}
-			<div >
+			<div style={{width:"350px"}}>
 				<AlgoliaPlaces
 					onInput={(input)=>{setCity(input.target.value)}}
 					placeholder='Write a city here'
@@ -27,11 +27,13 @@ function AutocompleteInput({setCity}) {
 							value: function(value) {
 								return `${value.name}, ${value.administrative === undefined ? value.county : value.administrative}, ${value.country}`
 							  }
-						}	
+						},
+							
 					}}
 						style={{backgroundColor: "#000000",
 							color: "#FFFFFF",
-							opacity: 0.4}}
+							opacity: 0.4,
+						}}
 				/>
 			</div>
 		</div>

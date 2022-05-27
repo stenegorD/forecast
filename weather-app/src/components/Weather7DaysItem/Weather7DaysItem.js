@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { CardMedia } from '@mui/material';
 import Fade from '@mui/material/Fade';
 
+
 function Weather7DaysItem({humidity, pressure, uvi, dt, tempDay, tempNight, description, icon, weeklyForecast }) {
     
   return (
@@ -11,6 +12,8 @@ function Weather7DaysItem({humidity, pressure, uvi, dt, tempDay, tempNight, desc
     <Fade in={weeklyForecast} timeout={800} unmountOnExit>
 
       <div>
+        
+        
         <Card sx={{ 
           width: "100%",
           display:"flex",

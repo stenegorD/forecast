@@ -65,11 +65,13 @@
 }
 
 
+
 @media screen and (max-width: 479px) {
     .header{
         flex-direction: column;
         gap: 2rem;
-    
+        padding-bottom: 10px;
+        padding-top: 30px;
         .header_logo{
             justify-content: space-between;
             .logo{
@@ -88,14 +90,17 @@
             display: none;
         }
 
-        input{
-           
+        .ap-dataset-places{
+            padding: 50px;
+            margin: 0;
         }
-        .ap-input, .ap-hint{
-            
-        }
-        
     }
+    .ap-suggestion{
+        padding: 0;
+         margin: 0;
+         height: 20px;
+    }
+    
   }
   
   @media screen and (max-width: 767px) {

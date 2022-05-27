@@ -34,7 +34,7 @@ const theme = createTheme({
       <CardContent sx={{display: "flex", justifyContent: "space-between", gap:"4rem", color:"#FFFFFF", '@media screen and (max-width: 479px)': {
                 flexDirection: "column-reverse",
                 alignItems:"start",
-                gap: "1rem"
+                gap: "0rem"
             }, }}>
       <Typography component="div" sx={{display:"flex", gap:"10px",'@media screen and (max-width: 479px)': {
                 alignSelf:"center",}}}>
@@ -58,9 +58,7 @@ const theme = createTheme({
             <Typography sx={{fontSize:"70px", color: "#CFCFCF", '@media screen and (max-width: 479px)': {fontSize:"30px"}}}>°C</Typography>
       </Typography>
       
-        <Typography component="div" sx={{
-          // minWidth: "40%"
-          }}>
+        <Typography component="div">
              <Typography component="div" sx={{fontSize: "50px", color: "#CFCFCF", '@media screen and (max-width: 479px)': {fontSize:"25px"}}} >
                 {weatherData?.name}
              </Typography>

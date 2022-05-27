@@ -20,6 +20,10 @@
   @media screen and (max-width: 479px) {
     .scrollToTop{
       // right: calc(50% - 46.5px/2);
-      color: #72a479B3;
+      right: 0rem;
+    
+    svg {
+      width: 4rem;
+    }
     }
   }

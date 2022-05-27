@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import TitleBar from '../TitleBar/TitleBar';
 import Weather7DaysItem from '../Weather7DaysItem/Weather7DaysItem';
-import Preloader from '../Preloader/Preloader';
 import { ThemeProvider, createTheme } from '@mui/material';
-
+import Weather7DaysItemTitleCard from '../Weather7DaysItem/Weather7DaysItemTitleCard';
 
 function Weather7DaysCard() {
 
@@ -26,7 +25,9 @@ function Weather7DaysCard() {
 
   return ( <div>
         <TitleBar title={"Weekly forecast"} more hideWeeklyForecast={hideWeeklyForecast}></TitleBar>
-           
+        <ThemeProvider theme={theme}>
+        <Weather7DaysItemTitleCard />  
+        </ThemeProvider>
        {weeklyForecast ? 
        <ThemeProvider theme={theme}>
       
