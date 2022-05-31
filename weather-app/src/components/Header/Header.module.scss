@@ -105,8 +105,30 @@
   
   @media screen and (max-width: 767px) {
     
+    
+    
   }
   
   @media screen and (max-width: 991px) {
-    
+    .header{
+        flex-direction: column;
+        gap: 2rem;
+        padding-bottom: 10px;
+        padding-top: 30px;
+        .header_logo{
+            justify-content: space-evenly;
+            .logo{
+                .logo_title{
+                    font-size: 20px;    
+                }
+                .logo_image{
+                    width: 4rem;
+                    top: -49px;
+                    left: 26px;
+                }
+        
+            }
+        }
+      
+    }
   }

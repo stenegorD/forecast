@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import {MdOutlineUmbrella} from 'react-icons/md'
-import styles from "./ButtonScrollToTop.module.scss";
+import React, { useEffect, useState } from 'react';
+import { MdOutlineUmbrella } from 'react-icons/md';
+import styles from './ButtonScrollToTop.module.scss';
 
 function ButtonScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,19 +16,19 @@ function ButtonScrollToTop() {
   const scrollToTopFunc = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility);
   }, []);
 
   return (
     <div className={styles.scrollToTop}>
       {isVisible && (
         <div onClick={scrollToTopFunc} aria-hidden>
-          <MdOutlineUmbrella  size={"5rem"} />
+          <MdOutlineUmbrella size="5rem" />
         </div>
       )}
     </div>

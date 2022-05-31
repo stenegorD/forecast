@@ -10,29 +10,30 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "algolia-places-react": "^1.6.1",
-    "algoliasearch": "^4.13.0",
     "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
-    "formik": "^2.2.9",
     "node-sass": "^7.0.1",
     "notiflix": "^3.2.5",
+    "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
-    "react-instantsearch-dom": "^6.24.3",
+    "react-material-ui-carousel": "^3.4.1",
+    "react-multi-carousel": "^2.8.0",
     "react-redux": "^8.0.1",
     "react-scripts": "5.0.1",
-    "react-transition-group": "^4.4.2",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "use-match-media-hook": "^1.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "npm run lint -- --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +54,12 @@
     ]
   },
   "devDependencies": {
-    "@redux-devtools/core": "^3.11.0"
+    "@redux-devtools/core": "^3.11.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0"
   }
 }

@@ -1,15 +1,11 @@
 .mainContainer{
+    max-width: 90vw;
     display: flex;
     flex: 1 0 auto;
-    // padding: 0 15px;
     margin: 0 auto;
-    max-width: 1230px;
-    // max-width: 100%;
     flex-direction: column;
     justify-content: center;
     .cardContainer{
     display: flex;
-    // flex-wrap: wrap;
-    // flex-direction: column;
     }
 }

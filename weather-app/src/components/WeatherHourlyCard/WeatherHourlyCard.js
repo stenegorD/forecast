@@ -1,51 +1,80 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import Fade from '@mui/material/Fade';
+import Carousel from 'react-multi-carousel';
 import WeatherHourlyItem from '../WeatherHourlyItem/WeatherHourlyItem';
-import styles from '../WeatherHourlyCard/WeatherHourlyCard.module.scss';
+import styles from './WeatherHourlyCard.module.scss';
 import TitleBar from '../TitleBar/TitleBar';
+import 'react-multi-carousel/lib/styles.css';
 
 function WeatherHourlyCard() {
-  
-  const [initialIndex, setInitialIndex] = useState(0);
-  const [finalIndex, setFinalIndex] = useState(5);
-  const {weatherHourly} = useSelector(store => store.weatherData);
-  const weatherHourlySlice = weatherHourly.slice(initialIndex, finalIndex);
- 
+  const [hideHourlyWeather, setHideHourlyWeather] = useState(false);
+  const { weatherHourly } = useSelector((store) => store.weatherData);
+  const handleClickHideHourlyWeather = () => {
+    setHideHourlyWeather(!hideHourlyWeather);
+  };
 
-  const handleArrowClick = (event) => {
-    if(finalIndex !== 45 && event.currentTarget.id === 'BsArrowRight'){
-      setInitialIndex(initialIndex + 5)
-      setFinalIndex(finalIndex + 5)
-      
-    }    
-    if(initialIndex !== 0 && event.currentTarget.id === 'BsArrowLeft'){
-      setFinalIndex(finalIndex - 5)
-      setInitialIndex(initialIndex - 5)
-      
-    }   
-  }
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 767 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 767, min: 479 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 479, min: 0 },
+      items: 1,
+    },
+  };
 
-  return (<div>
-    <div>
-    <TitleBar title={"Hourly forecast for today"} arrow handleArrowClick={handleArrowClick}/>
+  return (
+    <div style={{ maxWidth: '90vw' }}>
+      <div>
+        <TitleBar title="Hourly forecast for today" more handleClickHideHourlyWeather={handleClickHideHourlyWeather} />
+      </div>
+      <Fade in={hideHourlyWeather} timeout={500} easing={{ enter: 'ease-in', exit: 'ease-out' }}>
+        <div className={styles.weatherHourlyCard}>
+
+          <Carousel
+            responsive={responsive}
+            additionalTransfrom={0}
+            arrows
+            autoPlay={false}
+            shouldResetAutoplay={false}
+            infinite={false}
+            centerMode={false}
+            draggable
+            focusOnSelect
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            showDots={false}
+            slidesToSlide={1}
+            swipeable
+            removeArrowOnDeviceType={['tablet', 'mobile']}
+          >
+            {weatherHourly && weatherHourly.map((element) => (
+              <WeatherHourlyItem
+                key={element.dt}
+                pressure={element.pressure}
+                humidity={element.humidity}
+                temp={element.temp}
+                feels_like={element.feels_like}
+                dt={element.dt}
+                description={element.weather[0].description}
+                icon={element.weather[0].icon}
+                wind_speed={element.wind_speed}
+                hideHourlyWeather={hideHourlyWeather}
+              />
+            ))}
+          </Carousel>
+        </div>
+      </Fade>
     </div>
-  <div className={styles.weatherHourlyCard}>
-  
-            {weatherHourlySlice.map((element) =>  
-            <WeatherHourlyItem
-            key={element.dt}
-            pressure={element.pressure}
-            humidity={element.humidity}
-            temp={element.temp}
-            feels_like={element.feels_like}
-            dt={element.dt}
-            description={element.weather[0].description}
-            icon={element.weather[0].icon}
-            wind_speed={element.wind_speed}
-            /> )}
-  </div>
-  </div>
-  )
+  );
 }
 
 export default React.memo(WeatherHourlyCard);
