@@ -19,6 +19,7 @@ module.exports = {
   ],
   rules: {
     'linebreak-style': 0,
+    'import/prefer-default-export': 0,
     'no-mixed-spaces-and-tabs': 0,
     'quotes': [2, 'single', { "avoidEscape": true }],
     'react/jsx-filename-extension': [1, { 'extensions': [".js", ".jsx"] }],
@@ -26,5 +27,6 @@ module.exports = {
     'camelcase': [0, { "properties": "never" }],
     'react/jsx-no-bind': [2, {"allowFunctions": true, "allowArrowFunctions": true }],
     'consistent-return': 0,
+    'max-len': [2, { "code": 110, "ignoreUrls": true, "ignoreTrailingComments": true, "ignoreStrings": true, "ignoreTemplateLiterals": true }]
   },
 };

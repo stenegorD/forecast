@@ -11,8 +11,8 @@ function Header() {
   const { locationData } = useSelector((store) => store.weatherData);
   const [city, setCity] = useState('');
 
-  function handlerForecastCity(city) {
-    if (city.length > 3) dispatch(weatherForecastCity(city));
+  function handlerForecastCity(cityName) {
+    if (city.length > 3) dispatch(weatherForecastCity(cityName));
   }
 
   return (
@@ -23,7 +23,7 @@ function Header() {
           <div className={styles.logo_title}>meteo umbrella </div>
         </div>
         <div className={styles.location_info}>
-          <img src={locationData.country_flag} />
+          <img alt="country flag" src={locationData.country_flag} />
           <div>
             {locationData.city}
             ,

@@ -13,7 +13,9 @@ function AutocompleteInput({ setCity }) {
         <AlgoliaPlaces
           onInput={(input) => { setCity(input.target.value); }}
           placeholder="Write a city here"
-          onChange={({ suggestion }) => { dispatch(getCurrentWeatherForCoord(suggestion.latlng.lat, suggestion.latlng.lng)); }}
+          onChange={({ suggestion }) => {
+            dispatch(getCurrentWeatherForCoord(suggestion.latlng.lat, suggestion.latlng.lng));
+          }}
           options={{
             apiId: process.env.REACT_APP_ALGOLIA_ID,
             apiKey: process.env.REACT_APP_ALGOLIA_API_KEY,

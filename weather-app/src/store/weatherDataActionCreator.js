@@ -1,9 +1,19 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
-  getAirPullution, getCurrentWeatherData, getHourlyForecastData, getHourlyForecastDataSity, getMoreWeatherData, getUserIP, getWeatherBySityName,
+  getAirPullution,
+  getCurrentWeatherData,
+  getHourlyForecastData,
+  getMoreWeatherData,
+  getUserIP,
+  getWeatherBySityName,
 } from '../axios/axiosRequest';
 import {
-  GET_AIR_POLLUTION, SET_IS_LOADING, USER_LOCATION_FOR_IP, WEATHER_FORECAST_DATA_FOR_GEOLOCATION, WEATHER_FORECAST_DATA_FOR_SITY_NAME, WEATHER_FOR_WEEK, WEATHER_HOURLY,
+  GET_AIR_POLLUTION,
+  SET_IS_LOADING,
+  USER_LOCATION_FOR_IP,
+  WEATHER_FORECAST_DATA_FOR_GEOLOCATION,
+  WEATHER_FORECAST_DATA_FOR_SITY_NAME,
+  WEATHER_FOR_WEEK, WEATHER_HOURLY,
 } from './weatherDataAction';
 
 // with geolocation
@@ -12,7 +22,6 @@ export const weatherForecastGeo = () => async (dispatch) => {
     const result = await getCurrentWeatherData(position.coords.latitude, position.coords.longitude);
     console.log(result);
     dispatch({ type: WEATHER_FORECAST_DATA_FOR_GEOLOCATION, payload: result.data });
-
     const resultMore = await getMoreWeatherData(position.coords.latitude, position.coords.longitude);
     dispatch({ type: WEATHER_FOR_WEEK, payload: resultMore.data.daily });
   };
@@ -33,6 +42,11 @@ export const weatherForecastGeo = () => async (dispatch) => {
 
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 };
+
+export const setIsLoadingData = (isLoading) => ({
+  type: SET_IS_LOADING,
+  payload: isLoading,
+});
 
 // weather by sity name
 export const weatherForecastCity = (sityName) => async (dispatch, getState) => {
@@ -84,7 +98,6 @@ export const userLocationIp = () => async (dispatch, getStore) => {
 
       // current forecast
       const resultCurrentForecast = await getCurrentWeatherData(latitude, longitude);
-      console.log(resultCurrentForecast);
       if (resultCurrentForecast.status === 200) {
         dispatch({ type: WEATHER_FORECAST_DATA_FOR_GEOLOCATION, payload: resultCurrentForecast.data });
       }
@@ -111,18 +124,12 @@ export const userLocationIp = () => async (dispatch, getStore) => {
   }
 };
 
-export const setIsLoadingData = (isLoading) => ({
-  type: SET_IS_LOADING,
-  payload: isLoading,
-});
-
 // current weather for coordinates suggestion in autocomplete
 export const getCurrentWeatherForCoord = (latitude, longitude) => async (dispatch) => {
   try {
     dispatch(setIsLoadingData(true));
     // current forecast
     const resultCurrentForecast = await getCurrentWeatherData(latitude, longitude);
-    console.log(resultCurrentForecast);
     if (resultCurrentForecast.status === 200) {
       dispatch({ type: WEATHER_FORECAST_DATA_FOR_GEOLOCATION, payload: resultCurrentForecast.data });
     }

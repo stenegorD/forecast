@@ -16,6 +16,7 @@ function WeatherCard() {
   const iconCode = icon.map((element) => element.icon);
   const currentDescription = icon.map((element) => element.description);
   const roundTemp = Math.round(weatherData?.main?.temp);
+  const regionNamesInEnglish = new Intl.DisplayNames(['en'], { type: 'region' }).of(`${weatherData.sys.country}`);
 
   const theme = createTheme({
     typography: {
@@ -81,7 +82,7 @@ function WeatherCard() {
 
           <Typography component="div">
             <Typography component="div" sx={{ fontSize: '50px', color: '#CFCFCF', '@media screen and (max-width: 479px)': { fontSize: '25px' } }}>
-              {weatherData?.name}
+              {`${weatherData?.name}, ${regionNamesInEnglish}`}
             </Typography>
             <Typography variant="body2" sx={{ fontSize: '30px', color: '#CFCFCF', '@media screen and (max-width: 479px)': { fontSize: '16px' } }}>
               {new Intl.DateTimeFormat('en-US', options).format(date)}

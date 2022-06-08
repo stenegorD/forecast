@@ -30,13 +30,10 @@ function Weather7DaysCard() {
   return (
     <div>
       <TitleBar title="Weekly forecast" more handleClickHideWeeklyForecast={handleClickHideWeeklyForecast} />
-      <ThemeProvider theme={theme}>
-        <Weather7DaysItemTitleCard mobile={mobile} />
-      </ThemeProvider>
       {weeklyForecast
         ? (
           <ThemeProvider theme={theme}>
-
+            <Weather7DaysItemTitleCard mobile={mobile} />
             { weatherForWeek.map((element) => (
               <Weather7DaysItem
                 key={element.dt}
