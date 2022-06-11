@@ -1,5 +1,5 @@
 # Meteo Umbrella
-![ScreenShot](/screenshots/Screenshot_PC.png)
+![ScreenShot](screenshots/Screenshot_PC.png)
 
 ## Description
 Forecast weather app
