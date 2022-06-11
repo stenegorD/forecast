@@ -15,10 +15,14 @@ function Header() {
     if (city.length > 3) dispatch(weatherForecastCity(cityName));
   }
 
+  function handleClickLogo() {
+    window.location.href = '/';
+  }
+
   return (
     <div className={styles.header}>
       <div className={styles.header_logo}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={handleClickLogo} role="link" tabIndex={0}>
           <BsUmbrellaFill size="8rem" className={styles.logo_image} />
           <div className={styles.logo_title}>meteo umbrella </div>
         </div>

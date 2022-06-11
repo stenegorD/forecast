@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import Fade from '@mui/material/Fade';
 import Carousel from 'react-multi-carousel';
 import WeatherHourlyItem from '../WeatherHourlyItem/WeatherHourlyItem';
-import styles from './WeatherHourlyCard.module.scss';
 import TitleBar from '../TitleBar/TitleBar';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -35,7 +34,7 @@ function WeatherHourlyCard() {
         <TitleBar title="Hourly forecast for today" more handleClickHideHourlyWeather={handleClickHideHourlyWeather} />
       </div>
       <Fade in={hideHourlyWeather} timeout={500} easing={{ enter: 'ease-in', exit: 'ease-out' }}>
-        <div className={styles.weatherHourlyCard}>
+        <div>
 
           <Carousel
             responsive={responsive}

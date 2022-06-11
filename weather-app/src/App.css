@@ -15,9 +15,45 @@ body {
 body{
   margin: 0;
   font-family: "Cairo", "Dosis";
-  background: url("https://i.pinimg.com/564x/46/eb/58/46eb58a97bd323269842aa717b7ed6b9.jpg");
+  background: url("https://media-exp1.licdn.com/dms/image/C4E1BAQFtzP_r8ouQOw/company-background_10000/0/1519796292438?e=2147483647&v=beta&t=ywhtIUxoYV25T_9Eg952aT2cI0utkdyi6ueKeHUV5TU");
   background-attachment: fixed;
   background-repeat: repeat-y;
   background-size: cover;
   background-position: center;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 5px;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  padding: 10px 0px;
+  width: 150px;
+  color: #ffffff;
+  background-color: #a3a3a3;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+.button:hover {
+  border-color: #363636;
+  background-color: #7d7b7e;
+}
+
+.message{
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 479px) {
+  .message{
+    font-size: 1rem;
+  }
+
 }

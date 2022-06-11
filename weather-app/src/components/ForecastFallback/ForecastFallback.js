@@ -9,8 +9,8 @@ function ForecastFallback({ resetErrorBoundary }) {
         <BiError size="10rem" />
       </div>
       <div role="alert">
-        <p style={{ fontSize: '2rem' }}>Oops something went wrong !</p>
-        <button type="button" onClick={resetErrorBoundary}>Try again</button>
+        <p className="message">Oops something went wrong !</p>
+        <button className="button" type="button" onClick={resetErrorBoundary}>Try again</button>
       </div>
     </div>
   );

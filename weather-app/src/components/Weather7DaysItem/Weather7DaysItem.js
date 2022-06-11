@@ -27,12 +27,14 @@ function Weather7DaysItem({
           },
         }}
         >
-          <Typography sx={{
-            flexBasis: '20%',
-            paddingLeft: '1rem',
-            alignSelf: 'center',
-            '@media screen and (max-width: 479px)': { alignSelf: 'start' },
-          }}
+          <Typography
+            component="div"
+            sx={{
+              flexBasis: '20%',
+              paddingLeft: '1rem',
+              alignSelf: 'center',
+              '@media screen and (max-width: 479px)': { alignSelf: 'start' },
+            }}
           >
             {new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(`${dt}000`)}
           </Typography>
@@ -41,26 +43,26 @@ function Weather7DaysItem({
             image={`http://openweathermap.org/img/wn/${icon}@2x.png`}
             component="img"
           />
-          <Typography sx={{ flexBasis: '20%', alignSelf: 'center' }}>{description}</Typography>
+          <Typography component="div" sx={{ flexBasis: '20%', alignSelf: 'center' }}>{description}</Typography>
           {mobile ? (
             <>
-              <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Typography sx={{ flexBasis: '50%' }}>Temp by day</Typography>
+              <Typography component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Typography sx={{ flexBasis: '50%' }}>Temperature at day</Typography>
                 <Typography sx={{ flexBasis: '20%', alignSelf: 'center' }}>
                   {Math.round(tempDay)}
                   {' '}
                   °C
                 </Typography>
               </Typography>
-              <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Typography sx={{ flexBasis: '50%' }}>Temp by night</Typography>
+              <Typography component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Typography sx={{ flexBasis: '50%' }}>Temperature at night</Typography>
                 <Typography sx={{ flexBasis: '20%', alignSelf: 'center' }}>
                   {Math.round(tempNight)}
                   {' '}
                   °C
                 </Typography>
               </Typography>
-              <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Typography component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Typography sx={{ flexBasis: '50%' }}>Humidity</Typography>
                 <Typography sx={{ flexBasis: '20%', alignSelf: 'center' }}>
                   {humidity}
@@ -68,7 +70,7 @@ function Weather7DaysItem({
                   %
                 </Typography>
               </Typography>
-              <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Typography component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Typography sx={{ flexBasis: '50%' }}>Pressure</Typography>
                 <Typography sx={{ flexBasis: '20%', alignSelf: 'center' }}>
                   {' '}
@@ -77,38 +79,38 @@ function Weather7DaysItem({
                   hPa
                 </Typography>
               </Typography>
-              <Typography sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Typography component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Typography sx={{ flexBasis: '50%' }}>UVI</Typography>
                 <Typography sx={{ flexBasis: '20%', alignSelf: 'center' }}>{uvi}</Typography>
               </Typography>
             </>
           ) : (
             <>
-              <Typography sx={{ flexBasis: '14%', alignSelf: 'center' }}>
+              <Typography component="div" sx={{ flexBasis: '14%', alignSelf: 'center' }}>
                 {' '}
                 {Math.round(tempDay)}
                 {' '}
                 °C
               </Typography>
-              <Typography sx={{ flexBasis: '14%', alignSelf: 'center' }}>
+              <Typography component="div" sx={{ flexBasis: '14%', alignSelf: 'center' }}>
                 {' '}
                 {Math.round(tempNight)}
                 {' '}
                 °C
               </Typography>
-              <Typography sx={{ flexBasis: '14%', alignSelf: 'center' }}>
+              <Typography component="div" sx={{ flexBasis: '14%', alignSelf: 'center' }}>
                 {' '}
                 {humidity}
                 {' '}
                 %
               </Typography>
-              <Typography sx={{ flexBasis: '14%', alignSelf: 'center' }}>
+              <Typography component="div" sx={{ flexBasis: '14%', alignSelf: 'center' }}>
                 {' '}
                 {pressure}
                 {' '}
                 hPa
               </Typography>
-              <Typography sx={{ flexBasis: '14%', alignSelf: 'center' }}>
+              <Typography component="div" sx={{ flexBasis: '14%', alignSelf: 'center' }}>
                 {' '}
                 {uvi}
               </Typography>

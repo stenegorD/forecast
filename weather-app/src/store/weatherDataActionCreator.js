@@ -16,33 +16,6 @@ import {
   WEATHER_FOR_WEEK, WEATHER_HOURLY,
 } from './weatherDataAction';
 
-// with geolocation
-export const weatherForecastGeo = () => async (dispatch) => {
-  const geoSuccess = async function (position) {
-    const result = await getCurrentWeatherData(position.coords.latitude, position.coords.longitude);
-    console.log(result);
-    dispatch({ type: WEATHER_FORECAST_DATA_FOR_GEOLOCATION, payload: result.data });
-    const resultMore = await getMoreWeatherData(position.coords.latitude, position.coords.longitude);
-    dispatch({ type: WEATHER_FOR_WEEK, payload: resultMore.data.daily });
-  };
-
-  const geoOptions = {
-    enableHighAccuracy: true,
-    timeout: 10 * 1000,
-  };
-
-  const geoError = function (error) {
-    console.log(`Error occurred. Error code: ${error.code}`);
-    // error.code can be:
-    //   0: unknown error
-    //   1: permission denied
-    //   2: position unavailable (error response from location provider)
-    //   3: timed out
-  };
-
-  navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-};
-
 export const setIsLoadingData = (isLoading) => ({
   type: SET_IS_LOADING,
   payload: isLoading,
