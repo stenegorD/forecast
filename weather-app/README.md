@@ -3,6 +3,8 @@
 
 ## Description
 Forecast weather app
+Definition location and weather output
+Search weather by city or autocomplete suggestion
 
 ## Features
 - current weather forecast and air pullution
