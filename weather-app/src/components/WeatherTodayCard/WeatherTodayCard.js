@@ -42,11 +42,11 @@ function WeatherTodayCard() {
     flexDirection: 'column',
     alignItems: 'center',
     gap: '5px',
-    '@media screen and (max-width: 479px)': { flexDirection: 'row', justifyContent: 'space-between' },
+    '@media screen and (max-width: 479px)': { flexDirection: 'row', gap: '0', justifyContent: 'space-between' },
   };
   const mobileStyles = {
     '@media screen and (max-width: 479px)': {
-      flexBasis: '25%',
+      flex: '0 0 33.3333%',
     },
   };
 
@@ -81,8 +81,8 @@ function WeatherTodayCard() {
 
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Feels like </Typography>
-                <WiThermometer sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <WiThermometer size="1.5rem" />
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {Math.round(weatherData?.main?.feels_like)}
                   {' '}
                   °C
@@ -92,7 +92,7 @@ function WeatherTodayCard() {
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Max temp </Typography>
                 <WiThermometer sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {Math.round(weatherData?.main?.temp_max)}
                   {' '}
                   °C
@@ -102,7 +102,7 @@ function WeatherTodayCard() {
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Min temp </Typography>
                 <WiThermometer sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {Math.round(weatherData?.main?.temp_min)}
                   {' '}
                   °C
@@ -112,7 +112,7 @@ function WeatherTodayCard() {
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Cloudiness </Typography>
                 <WiCloud sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {weatherData?.clouds?.all}
                   {' '}
                   %
@@ -122,7 +122,7 @@ function WeatherTodayCard() {
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Humidity </Typography>
                 <WiHumidity sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {weatherData?.main?.humidity}
                   {' '}
                   %
@@ -131,8 +131,8 @@ function WeatherTodayCard() {
 
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Pressure </Typography>
-                <WiBarometer sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <WiBarometer sx={{ ...mobileStyles }} size="1.5rem" />
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {weatherData?.main?.pressure}
                   {' '}
                   hPa
@@ -141,8 +141,8 @@ function WeatherTodayCard() {
 
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Wind speed </Typography>
-                <WiWindy sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <WiWindy size="1.5rem" />
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {weatherData?.wind?.speed}
                   {' '}
                   m/sec
@@ -151,8 +151,8 @@ function WeatherTodayCard() {
 
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Wind gust </Typography>
-                <WiStrongWind sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>
+                <WiStrongWind size="1.5rem" />
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                   {weatherData?.wind?.gust}
                   {' '}
                   m/sec
@@ -161,22 +161,22 @@ function WeatherTodayCard() {
 
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Sunset </Typography>
-                <WiSunset sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>{sunsetTime}</Typography>
+                <WiSunset size="1.5rem" />
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>{sunsetTime}</Typography>
               </Typography>
 
               <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Sunrise </Typography>
-                <WiSunrise sx={mobileStyles} size="1.5rem" />
-                <Typography sx={mobileStyles}>{sunriseTime}</Typography>
+                <WiSunrise size="1.5rem" />
+                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>{sunriseTime}</Typography>
               </Typography>
 
               {weatherData.rain
                 ? (
                   <Typography component="div" sx={forecastStyles}>
                     <Typography sx={mobileStyles}>Rain </Typography>
-                    <WiRain sx={mobileStyles} size="1.5rem" />
-                    <Typography sx={mobileStyles}>
+                    <WiRain size="1.5rem" />
+                    <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                       {weatherData?.rain?.['1h']}
                       {' '}
                       mm
@@ -190,8 +190,8 @@ function WeatherTodayCard() {
                 ? (
                   <Typography component="div" sx={forecastStyles}>
                     <Typography sx={mobileStyles}>Snow </Typography>
-                    <WiSnow sx={mobileStyles} size="1.5rem" />
-                    <Typography sx={mobileStyles}>
+                    <WiSnow size="1.5rem" />
+                    <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
                       {weatherData?.snow?.['1h']}
                       {' '}
                       mm
