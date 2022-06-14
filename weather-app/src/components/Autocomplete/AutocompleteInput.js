@@ -2,7 +2,7 @@ import React from 'react';
 import AlgoliaPlaces from 'algolia-places-react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getCurrentWeatherForCoord, weatherForecastCity } from '../../store/weatherDataActionCreator';
+import { getCurrentWeatherForCoord } from '../../store/weatherDataActionCreator';
 
 function AutocompleteInput({ setCity }) {
   const dispatch = useDispatch();
@@ -15,7 +15,6 @@ function AutocompleteInput({ setCity }) {
           placeholder="Write a city here"
           onChange={({ suggestion }) => {
             dispatch(getCurrentWeatherForCoord(suggestion.latlng.lat, suggestion.latlng.lng));
-            // dispatch(weatherForecastCity(suggestion.name))
           }}
           options={{
             apiId: process.env.REACT_APP_ALGOLIA_ID,

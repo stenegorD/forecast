@@ -32,17 +32,23 @@ function WeatherHourlyItem({
         <Card sx={{
           display: 'flex',
           flexDirection: 'column',
-          padding: '1rem',
+          padding: '1rem 0',
           backgroundColor: '#000000',
           color: '#FFFFFF',
           opacity: '0.5',
           marginBottom: '5px',
           minWidth: '150px',
           transition: '2s',
+          margin: '0 0.1rem',
         }}
         >
 
-          <Typography sx={{ alignSelf: 'start' }}>{getHours(`${dt}000`)}</Typography>
+          <Typography sx={{
+            alignSelf: 'start', padding: '0 1rem', backgroundColor: '#006400', borderRadius: '0px 4px 4px 0px',
+          }}
+          >
+            {getHours(`${dt}000`)}
+          </Typography>
           <CardMedia
             sx={{ maxWidth: '50px', alignSelf: 'center' }}
             image={`http://openweathermap.org/img/wn/${icon}@2x.png`}
@@ -54,7 +60,7 @@ function WeatherHourlyItem({
             {' '}
             °C
           </Typography>
-          <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 1rem' }}>
             <Typography>Feels like </Typography>
             <Typography>
               {Math.round(feels_like)}
@@ -62,7 +68,7 @@ function WeatherHourlyItem({
               °C
             </Typography>
           </Typography>
-          <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 1rem' }}>
             <Typography>Pressure </Typography>
             <Typography>
               {pressure}
@@ -70,7 +76,12 @@ function WeatherHourlyItem({
               hPa
             </Typography>
           </Typography>
-          <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+          <Typography
+            component="div"
+            sx={{
+              display: 'flex', justifyContent: 'space-between', gap: '10px', padding: '0 1rem',
+            }}
+          >
             <Typography>Wind speed </Typography>
             <Typography>
               {wind_speed}
@@ -78,7 +89,7 @@ function WeatherHourlyItem({
               m/sec
             </Typography>
           </Typography>
-          <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 1rem' }}>
             <Typography>Humidity </Typography>
             <Typography>
               {humidity}

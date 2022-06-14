@@ -53,12 +53,11 @@ function CurrentAirPollutionItem({
         component="div"
         sx={{
           display: 'flex', justifyContent: 'center', gap: '2rem', borderTop: '1px solid #FFFFFF', paddingTop: '1rem',
-          
         }}
       >
-        <Typography sx={{'@media screen and (max-width: 479px)': {flex: '0 0 33.3333%'}}}>AQI </Typography>
-        <GiGasMask sx={{'@media screen and (max-width: 479px)': {flex: '0 0 33.3333%'}}} size="1.5rem" />
-        <Typography sx={{'@media screen and (max-width: 479px)': {flex: '0 0 33.3333%'}}}>{aqiConvertResult}</Typography>
+        <Typography sx={{ '@media screen and (max-width: 479px)': { flex: '0 0 33.3333%', textAlign: 'end', alignSelf: 'center' } }}>AQI </Typography>
+        <GiGasMask sx={{ '@media screen and (max-width: 479px)': { flex: '0 0 33.3333%' } }} size="1.5rem" />
+        <Typography sx={{ '@media screen and (max-width: 479px)': { flex: '0 0 33.3333%', alignSelf: 'center' } }}>{aqiConvertResult}</Typography>
       </Typography>
       <Fade in={moreWeatherToday} timeout={500} unmountOnExit>
         <div>

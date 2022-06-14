@@ -33,7 +33,9 @@ function Weather7DaysItem({
               flexBasis: '20%',
               paddingLeft: '1rem',
               alignSelf: 'center',
-              '@media screen and (max-width: 479px)': { minWidth: '70px', alignSelf: 'start', paddingRight: '1rem', backgroundColor: 'darkgreen', borderRadius: '0px 4px 4px 0px' },
+              '@media screen and (max-width: 479px)': {
+                minWidth: '70px', alignSelf: 'start', paddingRight: '1rem', backgroundColor: '#006400', borderRadius: '0px 4px 4px 0px',
+              },
             }}
           >
             {new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(`${dt}000`)}
@@ -46,7 +48,7 @@ function Weather7DaysItem({
           <Typography component="div" sx={{ flexBasis: '20%', alignSelf: 'center' }}>{description}</Typography>
           {mobile ? (
             <>
-              <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 1rem' }}>
+              <Typography component="div" sx={{ display: 'flex', justifyContent: 'space-between', padding: '1rem 1rem 0 1rem' }}>
                 <Typography sx={{ flexBasis: '50%' }}>Temperature at day</Typography>
                 <Typography sx={{ flexBasis: '20%', alignSelf: 'center', textAlign: 'end' }}>
                   {Math.round(tempDay)}

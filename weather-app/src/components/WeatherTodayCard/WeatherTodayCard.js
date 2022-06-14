@@ -90,26 +90,6 @@ function WeatherTodayCard() {
               </Typography>
 
               <Typography component="div" sx={forecastStyles}>
-                <Typography sx={mobileStyles}>Max temp </Typography>
-                <WiThermometer sx={mobileStyles} size="1.5rem" />
-                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
-                  {Math.round(weatherData?.main?.temp_max)}
-                  {' '}
-                  °C
-                </Typography>
-              </Typography>
-
-              <Typography component="div" sx={forecastStyles}>
-                <Typography sx={mobileStyles}>Min temp </Typography>
-                <WiThermometer sx={mobileStyles} size="1.5rem" />
-                <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
-                  {Math.round(weatherData?.main?.temp_min)}
-                  {' '}
-                  °C
-                </Typography>
-              </Typography>
-
-              <Typography component="div" sx={forecastStyles}>
                 <Typography sx={mobileStyles}>Cloudiness </Typography>
                 <WiCloud sx={mobileStyles} size="1.5rem" />
                 <Typography sx={{ ...mobileStyles, textAlign: 'end' }}>
