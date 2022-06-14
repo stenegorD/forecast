@@ -19,14 +19,14 @@ function AutocompleteInput({ setCity }) {
           options={{
             apiId: process.env.REACT_APP_ALGOLIA_ID,
             apiKey: process.env.REACT_APP_ALGOLIA_API_KEY,
-            language: ['en', 'ru', 'ua'],
+            language: ['en', 'uk'],
             type: ['city'],
             templates: {
 					    suggestion(suggestion) {
-							  return `${suggestion.name}, ${suggestion.administrative === undefined ? suggestion.county : suggestion.administrative}, ${suggestion.country}`;
+							  return `${suggestion.name}, ${suggestion.administrative === undefined ? suggestion.county || suggestion.hit.administrative[0] : suggestion.administrative}, ${suggestion.country}`;
 					    },
 					    value(value) {
-					      return `${value.name}, ${value.administrative === undefined ? value.county : value.administrative}, ${value.country}`;
+					      return `${value.name}, ${value.administrative === undefined ? value.county || value.name : value.administrative}, ${value.country}`;
               },
             },
           }}
