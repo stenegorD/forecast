@@ -58,6 +58,10 @@
             max-width: 100%;
             
         }
+        .location_info_text{
+            min-width: 100px;
+            word-wrap: break-word;
+        }
     }
 }
 
@@ -73,6 +77,7 @@
             justify-content: space-between;
             .logo{
                 .logo_title{
+                    min-width: 137px;
                     font-size: 20px;    
                 }
                 .logo_image{

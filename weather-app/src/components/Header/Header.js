@@ -28,7 +28,7 @@ function Header() {
         </div>
         <div className={styles.location_info}>
           <img alt="country flag" src={locationData.country_flag} />
-          <div>
+          <div className={styles.location_info_text}>
             {locationData.city}
             ,
             {' '}

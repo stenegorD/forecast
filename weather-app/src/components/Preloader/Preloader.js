@@ -8,7 +8,7 @@ function Preloader() {
       display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem',
     }}
     >
-      <CircularProgress />
+      <CircularProgress sx={{ color: '#FFFFFF' }} />
     </Box>
   );
 }

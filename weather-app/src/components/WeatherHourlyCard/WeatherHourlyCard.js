@@ -53,7 +53,7 @@ function WeatherHourlyCard() {
             showDots={false}
             slidesToSlide={1}
             swipeable
-            removeArrowOnDeviceType={['tablet', 'mobile']}
+            removeArrowOnDeviceType={['tablet']}
           >
             {weatherHourly && weatherHourly.map((element) => (
               <WeatherHourlyItem
