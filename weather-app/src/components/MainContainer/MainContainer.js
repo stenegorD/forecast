@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import WeatherCard from '../WeataherCard/WeatherCard';
-import Weather7DaysCard from '../Weather7DaysCard/Weather7DaysCard';
-import WeatherHourlyCard from '../WeatherHourlyCard/WeatherHourlyCard';
-import WeatherTodayCard from '../WeatherTodayCard/WeatherTodayCard';
 import styles from './MainContainer.module.scss';
 import Preloader from '../Preloader/Preloader';
+
+const WeatherTodayCard = React.lazy(() => import(/* webpackChunkName: 'WeatherTodayCard' */ '../WeatherTodayCard/WeatherTodayCard'));
+const WeatherHourlyCard = React.lazy(() => import(/* webpackChunkName: 'WeatherHourlyCard' */ '../WeatherHourlyCard/WeatherHourlyCard'));
+const Weather7DaysCard = React.lazy(() => import(/* webpackChunkName: 'Weather7DaysCard' */ '../Weather7DaysCard/Weather7DaysCard'));
 
 function MainContainer() {
   const { isLoading } = useSelector((store) => store.weatherData);
@@ -13,14 +14,14 @@ function MainContainer() {
     <div className={styles.mainContainer}>
       {isLoading ? <Preloader />
         : (
-          <>
+          <Suspense fallback={<Preloader />}>
             <WeatherCard />
             <WeatherTodayCard />
             <div className={styles.cardContainer}>
               <WeatherHourlyCard />
             </div>
             <Weather7DaysCard />
-          </>
+          </Suspense>
         )}
     </div>
   );

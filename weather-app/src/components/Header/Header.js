@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaSearchLocation } from 'react-icons/fa';
 import { BsUmbrellaFill } from 'react-icons/bs';
@@ -10,6 +10,11 @@ function Header() {
   const dispatch = useDispatch();
   const { locationData } = useSelector((store) => store.weatherData);
   const [city, setCity] = useState('');
+  const yourLocation = useMemo(() => ({
+    city: locationData.city,
+    country: locationData.country_name,
+    country_flag: locationData.country_flag,
+  }), [locationData.city, locationData.country_name]);
 
   function handlerForecastCity(cityName) {
     if (city.length > 3) dispatch(weatherForecastCity(cityName));
@@ -27,12 +32,12 @@ function Header() {
           <div className={styles.logo_title}>meteo umbrella </div>
         </div>
         <div className={styles.location_info}>
-          <img alt="country flag" src={locationData.country_flag} />
+          <img alt="country flag" src={yourLocation.country_flag} />
           <div className={styles.location_info_text}>
-            {locationData.city}
+            {yourLocation.city}
             ,
             {' '}
-            {locationData.country_name}
+            {yourLocation.country}
           </div>
         </div>
       </div>
