@@ -20,7 +20,8 @@ body{
   background-repeat: repeat-y;
   background-size: cover;
   background-position: center;
-  transition: height 1000000s ease;
+  min-height: 100vh;
+  min-height: fill-available;
 }
 
 .button {
