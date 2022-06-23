@@ -2,7 +2,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 
@@ -21,7 +21,7 @@ body{
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  min-height: stretch;
+  
 }
 
 .button {
@@ -58,4 +58,11 @@ body{
     font-size: 1rem;
   }
 
+}
+
+@media only screen and (max-device-width: 479px) {
+  html {
+    height: calc(100% + 60px);
+    min-height: calc(100% + 60px);
+  }
 }
