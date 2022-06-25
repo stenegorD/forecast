@@ -53,9 +53,8 @@ body{
   .message{
     font-size: 1rem;
   }
-
-  body {
-    height: calc(100% + 60px);
-    transition: height 99999s;
+  html,
+  #root{
+    height: calc(100vh + 60px);
   }
 }
