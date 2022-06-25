@@ -1,19 +1,24 @@
 .App {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
 }
 
-body{
-  margin: 0;
+#root {
+  height: 100%;
+  min-height: 100vh;
   font-family: "Cairo", "Dosis";
   background: url("https://media-exp1.licdn.com/dms/image/C4E1BAQFtzP_r8ouQOw/company-background_10000/0/1519796292438?e=2147483647&v=beta&t=ywhtIUxoYV25T_9Eg952aT2cI0utkdyi6ueKeHUV5TU");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  max-height: 100%;
+}
+
+body{
+  margin: 0;
+  height: 100%;
 }
 
 .button {
