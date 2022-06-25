@@ -17,6 +17,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  height: 100%;
 }
 
 .button {
@@ -54,6 +55,7 @@ body{
   }
 
   body {
-    min-height: calc(100% + 60px);
+    height: calc(100% + 60px);
+    transition: height 99999s;
   }
 }
