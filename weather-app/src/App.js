@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { ErrorBoundary } from 'react-error-boundary';
-import Div100vh from 'react-div-100vh';
 import { userLocationIp } from './store/weatherDataActionCreator';
 import './App.css';
 import Header from './components/Header/Header';
@@ -18,16 +17,14 @@ function App() {
   }, []);
 
   return (
-    <Div100vh className="App_bg">
-      <div className="App">
-        <Header />
-        <ErrorBoundary FallbackComponent={ForecastFallback}>
-          <MainContainer />
-        </ErrorBoundary>
-        <Footer />
-        <ButtonScrollToTop />
-      </div>
-    </Div100vh>
+    <div className="App">
+      <Header />
+      <ErrorBoundary FallbackComponent={ForecastFallback}>
+        <MainContainer />
+      </ErrorBoundary>
+      <Footer />
+      <ButtonScrollToTop />
+    </div>
   );
 }
 
