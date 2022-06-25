@@ -53,8 +53,4 @@ body{
   .message{
     font-size: 1rem;
   }
-  html,
-  #root{
-    height: calc(100vh + 60px);
-  }
 }
