@@ -15,7 +15,7 @@ root.render(
 
 const appHeight = () => {
   const rootDiv = document.getElementById('root');
-  rootDiv.style.setProperty('min-height', `${window.innerHeight}px`);
+  rootDiv.style.setProperty('min-height', `${window.innerHeight + 60}px`);
 };
 window.addEventListener('resize', appHeight);
 appHeight();
