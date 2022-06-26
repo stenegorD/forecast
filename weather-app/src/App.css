@@ -16,9 +16,16 @@
   background-position: center;
 }
 
+html {
+  height: 100%;
+}
+
 body{
   margin: 0;
-  height: 100%;
+  padding: 0;
+  min-height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .button {
